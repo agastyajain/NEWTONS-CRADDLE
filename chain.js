@@ -1,22 +1,19 @@
-class Chain{
-    constructor(body1,body2,offsetX,offsetY){
-        this.offsetX=offsetX;
-        this.offsetY=offsetY;
+class Chain {
+    constructor(body1, body2) {
         var options = {
             bodyA: body1,
             bodyB: body2,
-            pointB:{x:this.offsetX,y:this.offsetY},
-            stiffness: 0.04,
-            lenght: 5
-          }
-          this.chain=Constraint.create(options);
-          World.add(world,this.chain);
+            stiffness: 1,
+            lenght: 10
+        }
+        this.chain = Constraint.create(options);
+        World.add(world, this.chain);
     }
 
-    display(){
-        var pointA=this.chain.bodyA.position;
-        var pointB=this.chain.bodyB.position;
-        line(pointA.x,pointA.y,pointB.x,pointB.y);
+    display() {
+        var pointA = this.chain.bodyA.position;
+        var pointB = this.chain.bodyB.position;
+        line(pointA.x, pointA.y, pointB.x, pointB.y);
 
     }
 }
